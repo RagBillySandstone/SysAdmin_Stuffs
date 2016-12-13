@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# newChefRepo -- create a Chef git repository in the current directory
+#	that is based on Opscode's skeleton
+# This repo is considered deprecated. I'm only doing this to follow
+#	along with the Chef Infrastructure Automation Cookbook (2013)
+# Use 'chef generate repo' command instead
+
+
+# Use the GitHub api to create a new repository
+curl -u 'RagBillySandstone' https://api.github.com/user/repos -d '{"name":"chef-repo"}' > /dev/null
+
+# Get and untar the repo, then clean up the directory name
+wget http://github.com/opscode/chef-repo/tarball/master
+tar xf master
+mv chef-boneyard-chef-repo-* chef-repo
+
+# Remove the tarball
+rm --force ./master
+
+cd chef-repo
+
+# Initialize git repo
+git init .
+
+# Connect local repo to remote repo on github
+git remote add origin https://github.com/RagBillySandstone/chef-repo.git
+
+# Add everything to the repo and commit
+git add .
+git commit -m "initial commit"
+
+# Now push it to github
+git push -u origin master
+
+
