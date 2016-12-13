@@ -16,7 +16,12 @@ import os, netifaces
 gws=netifaces.gateways()
 
 try:
+# I found this line in a Google search. I admittedly do not understand the
+# gws['default'][netifaces.AF_INET][0] thing. The same results seem to be 
+# returned with 
+# gws['default'][2][0]  -- Which I DO understand 
 	response = os.system("ping -c 1 -w 2 > /dev/null " + gws['default'][netifaces.AF_INET][0])
+
 except KeyError:
 	print 'No connection found'
 	exit(2)
