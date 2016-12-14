@@ -17,6 +17,12 @@ dpkg -i ./google-chrome*.deb
 apt-get install --fix-broken --assume-yes
 rm --force ./google-chrome*.deb
 
+# Install Sublime 3 
+add-apt-repository -y ppa:webupd8team/sublime-text-3
+apt-get -y update
+apt-get -y install sublime-text-installer
+
+
 # And get rid of some softwares I don't use
 apt-get -y remove firefox 
 
