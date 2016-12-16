@@ -40,6 +40,18 @@ service logstash start 			# Start the daemon
 update-rc.d logstash defaults 97 8 # Start the daemon on boot
 rm --force logstash*.deb		# Remove the package file
 
+# Apparently there is a problem running this with systemctl which can be 
+# Mediated with the Ruby Gem "Pleaserun"
+# https://github.com/jordansissel/pleaserun
+apt-install ruby
+gem install pleaserun
+# create the systemd daemon file
+# This generated a "File already exists" error on my system for
+# /etc/logstash/logstash.conf
+pleaserun -p systemd -v default --install /opt/logstash/bin/logstash agent -f /etc/logstash/logstash.conf
+systemctl start logstash	# Start the daemon
+systemctl status logstatus	# Check the status of the daemon
+
 # 4:
 # Configure logstash
 
