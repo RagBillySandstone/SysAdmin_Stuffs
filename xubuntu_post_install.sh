@@ -9,7 +9,7 @@ apt-get update && apt-get dist-upgrade
 
 # Install some favorite software and fonts
 apt-get -y install terminator vim nautilus-dropbox keepassx git \ 
-	ttf-anonymous-pro ipython 
+	ttf-anonymous-pro ipython ruby
 
 # install Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
