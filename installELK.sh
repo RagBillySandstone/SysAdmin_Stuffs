@@ -3,12 +3,14 @@
 # install the ELK stack on Ubuntu 16.04
 # Per http://linoxide.com/ubuntu-how-to/setup-elk-stack-ubuntu-16/
 
+# 1:
 # ElasticSearch recommends Oracle Java, so...
 # This will require some user intervention to accept the license agreement
 add-apt-repository -y ppa:webupd8team/java
 apt-get -y update
 apt-get -y install oracle-java8-installer
 
+# 2:
 # Install ElasticSearch
 # First add the public GPG key to apt
 wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | apt-key add -
@@ -26,4 +28,18 @@ echo "Uncomment the network.host line and replace its value with 'localhost'"
 echo "network.host: localhost"
 read -rsp $'Press any key to continue...\n' -n1 key
 service elasticsearch restart # Start elasticsearch
+update-rc.d elasticsearch defaults 95 10 # Start the daemon on system boot
+
+# 3:
+# Install logstash
+# Create the logstash source list from the same repo as elasticsearch
+# Hence no need to import the public key
+wget https://download.elastic.co/logstash/logstash/packages/debian/logstash_2.3.4-1_all.deb
+dpkg -i logstash_2.3.4-1_all.deb # Install the package
+service logstash start 			# Start the daemon
+update-rc.d logstash defaults 97 8 # Start the daemon on boot
+rm --force logstash*.deb		# Remove the package file
+
+# 4:
+# Configure logstash
 
