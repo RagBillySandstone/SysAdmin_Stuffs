@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# be sure to add the following lines to ./.bashrc
+#if [ -f ~/.mybashrc ] ; then
+#	. ~/.mybashrc
+#fi	
+
+
+
