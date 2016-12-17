@@ -52,6 +52,20 @@ pleaserun -p systemd -v default --install /opt/logstash/bin/logstash agent -f /e
 systemctl start logstash	# Start the daemon
 systemctl status logstatus	# Check the status of the daemon
 
+
 # 4:
 # Configure logstash
+# Create directory for storing certificate and key for logstash
+mkdir -p /var/lib/logstash/private
+chown logstash:logstash /var/lib/logstash/private
+chmod go-rwx /var/lib/logstash/private
+
+# Create certificates and key
+openssl req -config /etc/ssl/openssl.cnf -x509  -batch -nodes -newkey rsa:2048 -keyout /var/lib/logstash/private/logstash-forwarder.key -out /var/lib/logstash/private/logstash-forwarder.crt -subj /CN=localhost
+
+# To avoid "TLS handshake error" add the server to /etc/ssl/openssl.conf
+echo -e "\n\n# Avoid TLS handshake error\n[v3_ca] subjectAltName = IP:127.0.0.1" >> /etc/ssl/openssl.cnf
+
+# Copy some logstash config files to the config directory
+cp 02-beats-input.conf 30-elasticsearch-output.conf 10-syslog-filter.conf /etc/logstash/conf.d/
 
