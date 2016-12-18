@@ -9,7 +9,12 @@ apt-get update && apt-get dist-upgrade
 
 # Install some favorite software and fonts
 apt-get -y install terminator vim nautilus-dropbox keepassx git \ 
-	ttf-anonymous-pro ipython ruby
+	ttf-anonymous-pro ipython ruby tree synaptic vlc libreoffice \
+	xubuntu-restricted-extras libavcodec-extra 
+
+# If you want to play DVDs, uncomment the following lines
+#apt-get -y install libdvdread4
+#/usr/share/doc/libdvdread4/install-css.sh
 
 # install Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -28,4 +33,15 @@ apt-get -y remove firefox
 
 # Remove packages that were installed automatically and no longer needed
 apt -y autoremove
+
+# Per http://www.binarytides.com/better-xubuntu-14-04/, this will speed up
+#	the user interface
+
+#echo "gtk-menu-popup-delay = 0 
+#gtk-menu-popdown-delay = 0 
+#gtk-menu-bar-popup-delay = 0 
+#gtk-enable-animations = 0 
+#gtk-timeout-expand = 0
+#gtk-timeout-initial = 0
+#gtk-timeout-repeat = 0" > ~/home/*/.gtkrc-2.0
 
