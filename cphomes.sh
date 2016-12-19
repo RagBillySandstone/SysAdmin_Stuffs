@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # copy a file to each user's home directory and grant ownership to
-# that user.
+# that user. I asked a question on StackExchange regarding this:
+# http://unix.stackexchange.com/questions/331174/how-can-i-copy-a-file-to-every-users-home-dir-in-bash/
 
 for homedir in /home/* ; do
 	if [ -d "$homedir" ] ; then 
