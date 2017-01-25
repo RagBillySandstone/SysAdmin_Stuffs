@@ -8,7 +8,7 @@
 apt-get update && apt-get dist-upgrade
 
 # Install some favorite software and fonts
-apt-get -y install terminator vim nautilus-dropbox keepassx git \ 
+apt-get -y install terminator vim nautilus-dropbox keepassx git \
 	ttf-anonymous-pro ipython ruby tree synaptic vlc libreoffice \
 	xubuntu-restricted-extras libavcodec-extra 
 
