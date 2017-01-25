@@ -11,7 +11,14 @@
 # ping the wireless router. Setting cron to run this script every five mins
 # doesn't completely alleviate the problem, but helps
 
-import os, netifaces
+import os
+
+try:
+	import netifaces
+except ImportError:
+	print "We need to install netifaces"
+	os.system('sudo apt-get install python-netifaces')
+	import netifaces
 
 gws=netifaces.gateways()
 
