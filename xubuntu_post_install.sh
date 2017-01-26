@@ -28,7 +28,7 @@ sh -c 'echo "deb http://dl.google.com/linux/musicmanager/deb/ stable main" >> /e
 	# Install the key
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 	# Update the repo and install the package
-apt update && apt install google-musicmanager-beta
+apt update && apt -y --fix-missing install google-musicmanager-beta
 
 # Install Sublime 3 
 add-apt-repository -y ppa:webupd8team/sublime-text-3
