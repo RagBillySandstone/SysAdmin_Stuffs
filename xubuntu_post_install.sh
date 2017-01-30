@@ -12,6 +12,9 @@ apt-get -y install terminator vim nautilus-dropbox keepassx git \
 	ttf-anonymous-pro ipython ruby tree synaptic vlc libreoffice \
 	xubuntu-restricted-extras libavcodec-extra vim-nox-py2
 
+# Install VIM Vundle in your local home directory
+# git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 
 # If you want to play DVDs, uncomment the following lines
 #apt-get -y install libdvdread4
