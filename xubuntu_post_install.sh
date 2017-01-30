@@ -10,7 +10,8 @@ apt-get update && apt-get dist-upgrade
 # Install some favorite software and fonts
 apt-get -y install terminator vim nautilus-dropbox keepassx git \
 	ttf-anonymous-pro ipython ruby tree synaptic vlc libreoffice \
-	xubuntu-restricted-extras libavcodec-extra 
+	xubuntu-restricted-extras libavcodec-extra vim-nox-py2
+
 
 # If you want to play DVDs, uncomment the following lines
 #apt-get -y install libdvdread4
@@ -37,7 +38,7 @@ apt-get -y install sublime-text-installer
 
 
 # And get rid of some softwares I don't use
-apt-get -y remove firefox 
+apt-get -y remove firefox vim-tiny
 
 # Remove packages that were installed automatically and no longer needed
 apt -y autoremove
