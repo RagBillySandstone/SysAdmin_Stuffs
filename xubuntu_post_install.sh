@@ -3,6 +3,11 @@
 # A script to run after a new install of Ubuntu
 # This is the kind of thing that I shold be doing with a "DevOps" tool
 
+# This script must be run as root!
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root" 1>&2
+  exit 1
+fi
 
 # Obviously, we want to start with updating the system
 apt-get update && apt-get dist-upgrade
