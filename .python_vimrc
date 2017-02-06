@@ -1,0 +1,26 @@
+" Config file to use VIM as a Python IDE
+" https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+
+set nocompatible 	" required
+filetype off		" required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle shold install plugins
+" call vundle#begin('~/some/alternative/path/here')
+
+"Allow Vundle to manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all your plugins here
+
+
+" All your plugins must be added above before the following line:
+call vundle#end()		" required
+filetype plugin indent on	" required
+
+" Vundle is set up and ready to use. fire up VIM and run
+" :PluginInstall
+" Which tells Vundle to download and install/update plugins
