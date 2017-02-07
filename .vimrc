@@ -15,3 +15,9 @@ set smartindent
 " http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
 :inoremap # X<BS>#
 
+" enable ~/.vim/ftplugin folder 
+"filetype plugin indent on
+
+" Add a space after each '#'
+autocmd BufRead,BufNewFile *.py inoremap # # 
+
