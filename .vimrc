@@ -11,3 +11,7 @@ set ruler		" show line and column number
 syntax on		" syntax highlighting
 set smartindent
 
+" keep indentation on comments (#)
+" http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
+:inoremap # X<BS>#
+
