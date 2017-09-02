@@ -1,6 +1,11 @@
 #!/bin/bash
 # Install Docker on Ubuntu  according to the instructions at
 # https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
+# Since writing this script, I've written an ansible play to do this:
+# https://github.com/RagBillySandstone/my-laptop-setup/blob/master/roles/my-laptop/tasks/add-docker.yml
+# 
+# Or, better yet is a more robust playbook found at:
+# https://github.com/angstwad/docker.ubuntu
 
 # Copyright 2017, Stephen Castaneda stepehn.c976@gmail.com
 # Licensed under the Apache License, Version 2.0 (the "License");
